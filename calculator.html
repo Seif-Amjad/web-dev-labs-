@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple iOS Calculator</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calc {
+      width: 300px;
+      background: #000;
+      border-radius: 25px;
+      padding: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+    }
+
+    .screen {
+      width: 100%;
+      height: 70px;
+      font-size: 2.5em;
+      border: none;
+      background: none;
+      color: #fff;
+      text-align: right;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    .keys {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      height: 65px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.4em;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    button:active {
+      opacity: 0.6;
+    }
+
+    .gray { background: #9d9d9d; color: #000; }
+    .orange { background: #ff9f0a; }
+    .dark { background: #2c2c2c; }
+    .zero {
+      grid-column: span 2;
+      border-radius: 35px;
+      text-align: left;
+      padding-left: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calc">
+    <input type="text" id="screen" class="screen" disabled>
+    <div class="keys">
+      <button class="gray" onclick="resetCalc()">AC</button>
+      <button class="gray" onclick="changeSign()">±</button>
+      <button class="gray" onclick="insert('%')">%</button>
+      <button class="orange" onclick="insert('/')">÷</button>
+
+      <button class="dark" onclick="insert('7')">7</button>
+      <button class="dark" onclick="insert('8')">8</button>
+      <button class="dark" onclick="insert('9')">9</button>
+      <button class="orange" onclick="insert('*')">×</button>
+
+      <button class="dark" onclick="insert('4')">4</button>
+      <button class="dark" onclick="insert('5')">5</button>
+      <button class="dark" onclick="insert('6')">6</button>
+      <button class="orange" onclick="insert('-')">−</button>
+
+      <button class="dark" onclick="insert('1')">1</button>
+      <button class="dark" onclick="insert('2')">2</button>
+      <button class="dark" onclick="insert('3')">3</button>
+      <button class="orange" onclick="insert('+')">+</button>
+
+      <button class="dark zero" onclick="insert('0')">0</button>
+      <button class="dark" onclick="insert('.')">.</button>
+      <button class="orange" onclick="solve()">=</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
